@@ -7,7 +7,7 @@ public class Aluno {
     float p2;
     float notaFinal;
 
-        // método construtor
+    // método construtor
     public Aluno(String nome, int numeroAluno, int idade, float p1, float p2){
         this.nome = nome;
         this.numeroAluno = numeroAluno;
