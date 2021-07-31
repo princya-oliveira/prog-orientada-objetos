@@ -16,7 +16,7 @@ public class Carro {
     }
 
     // método construtor
-    public Carro(String modelo, int ano, boolean motor, float velocidade) {
+    public Carro(String modelo, int ano, boolean motor, float velocidade){
         // a variável do objeto = variável do usuário
         this.modelo = modelo;
         this.ano = ano;
