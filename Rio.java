@@ -1,9 +1,9 @@
 public class Rio {
     
     // declarando as variáveis
-    String nome;
-    float nivel;
-    boolean poluido;
+    public String nome;
+    public float nivel;
+    public boolean poluido;
 
     // método construtor sem parâmetros
     public Rio(){
@@ -20,27 +20,26 @@ public class Rio {
     // método chover(float): que aumenta o nível atual do rio
     public void chover(float x){
         this.nivel += x;
-        System.out.println("Nível atual do rio: " + this.nivel);
     }
 
     // método ensolarar(float): que diminui o nível atual do rio
     public void ensolarar(float x){
         this.nivel -= x;
-        System.out.println("Nível atual do rio: " + this.nivel);
     }
 
     // método limpar(): que limpa o rio
     public void limpar(){
         this.poluido = false;
-        System.out.println("Rio poluído? " + this.poluido);
     }
+
     // método sujar(): que polui o rio
     public void sujar(){
         this.poluido = true;
-        System.out.println("Rio poluído? " + this.poluido);
     }
+
     // método mostra(): que mostra todas as informações do rio
-    public void mostra(){
-        System.out.println("Nome do rio: " + this.nome + "\nNível: " + this.nivel + "\nRio poluído? " + this.poluido);
+    public String mostra(){
+        String auxiliar = this.poluido? "está poluído" : "está limpo";
+        return "Nome: " + this.nome + " Nível: " + this.nivel + " " + auxiliar;
     }
 }

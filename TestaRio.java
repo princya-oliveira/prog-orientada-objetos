@@ -2,16 +2,15 @@ public class TestaRio {
     
     public static void main(String args[]){
 
-        // criando rio1
-        Rio rio1 = new Rio();
-        rio1.nome = "Rio Negro";
-        rio1.nivel = 28;
-        rio1.poluido = false;
-        
+        Rio rio1 = new Rio("Amazonas", 1.3f, false);
+        rio1.chover(0.4f);
+        rio1.sujar();
 
-        Rio rio2 = new Rio("Rio Coari", 19, false);
-        
-        rio1.mostra();
-        rio2.mostra();
+        Rio rio2 = new Rio("Tamoios", 0.9f, true);
+        rio2.ensolarar(0.3f);
+        rio2.limpar();
+
+        System.out.println(rio1.mostra());
+        System.out.println(rio2.mostra());
     }
 }

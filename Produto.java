@@ -1,20 +1,18 @@
 public class Produto {
 
-    // declarando as variáveis
-    int id;
-    String descricao;
-    int qtde;
-    float preco;
+    public int id, qtde;
+    public String descricao;
+    public float preco;
+
+    public Produto(){
+
+    }
 
     public Produto(int id, String descricao, int qtde, float preco){
         this.id = id;
         this.descricao = descricao;
         this.qtde = qtde;
         this.preco = preco;
-    }
-
-    public Produto(){
-
     }
 
     public void comprar(int x) {
@@ -33,8 +31,8 @@ public class Produto {
         this.preco -= x;
     }
 
-    public void mostra(){
-        System.out.println("-Informações do produto-" + "\nID do produto: " + this.id + "\nDescrição do produto: " + this.descricao + "\nQuantidade: " + this.qtde + "\nPreço: " + this.preco);
+    public String mostra(){
+        return String.format("Nome: %s Qtde: %d Preço: %.2f", this.descricao, this.qtde, this.preco);
     }
     
 }

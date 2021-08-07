@@ -4,36 +4,36 @@ public class Cliente {
     int numeroAgencia;
     String nome;
     float saldo;
-    float deposito;
-    float saque;
 
-   public Cliente(int numeroConta, int numeroAgencia, String nome, float saldo, float saque, float deposito){
+
+    public Cliente(){
+
+    }
+
+    public Cliente(int numeroConta, int numeroAgencia, String nome, float saldo){
        this.numeroConta = numeroConta;
        this.numeroAgencia = numeroAgencia;
        this.nome = nome;
        this.saldo = saldo;
-       this.saque = saque;
-       this.deposito = deposito;
-   }
- 
-   public void realizarDeposito() {
-       if(this.deposito > 0){
-            System.out.println("- Extrato conta -" + "\nSaldo inicial: " + this.saldo + "\nValor do depósito: " + this.deposito);
-            this.saldo += this.deposito;
-            System.out.println("Saldo final: " + this.saldo);
-        }
-   }
+    }
 
-   public void realizarSaque() {
-       if(this.saque > 0){   
-            System.out.println("- Extrato conta -" + "\nSaldo inicial: " + this.saldo + "\nValor do saque: " + this.saque);
-            this.saldo -= this.saque;
-            System.out.println("Saldo final: " + this.saldo);
-        }
-   }
+    // depositar um valor x
+    public void depositar(float x){
+        this.saldo = this.saldo + x;
+    }
 
-   public void mostraDados() {
-       System.out.println("- Dados do cliente -" + "\nNúmero da conta: " + this.numeroConta + "\nNome do cliente: " + this.nome + "\nSaldo atual: " + this.saldo); 
-   }
-    
+    // sacar um valor x
+    public void sacar(float x){
+        if(this.saldo - x >= 0){
+            this.saldo = this.saldo - x;
+        }
+        else{
+            System.out.println("Saldo insuficiente");
+        }
+    }
+
+    // retornar os dados do cliente
+    public String dadosCliente(){
+        return " Número da agência: " + this.numeroAgencia + " Número da conta: " + this.numeroConta + " Saldo atual: " + this.saldo;
+    }   
 }
