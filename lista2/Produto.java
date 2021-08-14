@@ -11,14 +11,15 @@ public class Produto {
     }
 
     public Produto(int id, String descricao, int qtde, float preco){
-        this.id = id;
-        this.descricao = descricao;
-        this.qtde = qtde;
-        this.preco = preco;
+        this.setId(id);
+        this.setDescricao(descricao);
+        this.setQtde(qtde);
+        this.setPreco(preco);
     }
 
     // criando os métodos setters
-    public void setQtde(int qtde){
+    // método final não pode alterado nas classes filhas
+    public final void setQtde(int qtde){
         if(qtde >= 0){
             this.qtde = qtde;
         }
@@ -28,7 +29,8 @@ public class Produto {
     }
 
     // criando os métodos setters
-    public void setPreco(float preco){
+    // método final não pode alterado nas classes filhas
+    public final void setPreco(float preco){
         if(preco >= 0){
             this.preco = preco;
         }
@@ -38,7 +40,8 @@ public class Produto {
     }
 
     // criando os métodos setters
-    public void setId(int id){
+    // método final não pode alterado nas classes filhas
+    public final void setId(int id){
         if(id >= 0){
             this.id = id;
         }
@@ -48,7 +51,8 @@ public class Produto {
     }
 
     // criando os métodos setters
-    public void setDescricao(String descricao){
+    // método final não pode alterado nas classes filhas
+    public final void setDescricao(String descricao){
         if(!descricao.isEmpty()){ // se descrição não for vazia
             this.descricao = descricao;
         }
