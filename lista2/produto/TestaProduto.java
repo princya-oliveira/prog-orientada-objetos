@@ -1,4 +1,4 @@
-package lista2;
+package lista2.produto;
 public class TestaProduto {
     
     public static void main(String args[]) {

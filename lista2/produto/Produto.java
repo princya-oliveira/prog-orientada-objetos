@@ -1,4 +1,4 @@
-package lista2;
+package lista2.produto;
 public class Produto {
 
     // vamos encapsular as variáveis para proteger, priva do mau uso
