@@ -1,3 +1,4 @@
+package lista3.viagem;
 
 public class Passageiro {
     
@@ -39,7 +40,7 @@ public class Passageiro {
     }
     
     public String toString(){
-        return "Nome: " + this.nome + "RG: " + this.rg + " CPF: " + this.cpf;
+        return "Nome: " + this.nome + " RG: " + this.rg + " CPF: " + this.cpf;
     }
     
 }
