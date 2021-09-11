@@ -18,7 +18,7 @@ public class Diretor extends Funcionario {
     }
 
     public void setCarro(String Carro) {
-        this.carro = carro;
+        this.setCarro(Carro);
     }
 
     @Override 
