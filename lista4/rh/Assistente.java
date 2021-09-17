@@ -26,6 +26,12 @@ public class Assistente extends Funcionario{
     @Override // indica que estamos anulando algo que foi herdado
     public String toString() {
         return " Hora extra: " + this.horaExtra + super.toString(); // super está chamando o método da super classe
+    }
+
+    @Override
+    public void receberSalarioTotal() {
+        float aux = this.salario + 40 * this.horaExtra;
+        System.out.println("Salário Total: " + aux);
     } 
 
     

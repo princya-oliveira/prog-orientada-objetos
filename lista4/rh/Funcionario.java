@@ -1,6 +1,6 @@
 package lista4.rh;
 
-public class Funcionario {
+public abstract class Funcionario {
     // # - protected -> permite que a variável seja herdada para as classes filhas
     protected String nome; 
     protected String rg;
@@ -34,4 +34,5 @@ public class Funcionario {
         return "Rg " + this.rg + " Nome: " + this.nome + " Salário " + this.salario;
     }
     
+    public abstract void receberSalarioTotal();
 }

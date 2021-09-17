@@ -17,12 +17,19 @@ public class Diretor extends Funcionario {
         return carro;
     }
 
-    public void setCarro(String Carro) {
-        this.setCarro(Carro);
+    public void setCarro(String carro) {
+        this.carro = carro;
     }
 
     @Override 
     public String toString() {
         return " Carro: " + this.carro + super.toString();
+    }
+
+    @Override
+    public void receberSalarioTotal() {
+        float preco = 80000;
+        float aux = this.salario + (5 * preco) / 100;
+        System.out.println("Salário Total: " + aux);
     } 
 }
