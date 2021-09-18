@@ -36,7 +36,14 @@ public class Casa extends Moradia {
 
     @Override
     public void calcularPreco() {
+        float aux;
+        aux = (this.tamanho * 500) + (this.tamQuintal * 100);
         
+        if (this.piscina) {
+            aux = aux + 1000;
+        }
+
+        System.out.println("Valor da casa é de " + aux);
     }
     
 }

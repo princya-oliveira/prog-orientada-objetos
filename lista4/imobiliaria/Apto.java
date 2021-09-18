@@ -2,8 +2,7 @@ package lista4.imobiliaria;
 
 public class Apto extends Moradia {
 
-    private int num;
-    private int andar;
+    private int num, andar;
 
     public Apto() {
         super();
@@ -20,6 +19,7 @@ public class Apto extends Moradia {
     }
 
     public void setNum(int num) {
+        this.num = num;
     }
 
     public int getAndar() {
@@ -27,6 +27,7 @@ public class Apto extends Moradia {
     }
 
     public void setAndar(int andar) {
+        this.andar = andar;
     }
 
     @Override
@@ -36,7 +37,21 @@ public class Apto extends Moradia {
 
     @Override
     public void calcularPreco() {
-        
+        float aux = (this.tamanho * 800);
+
+        if (this.num % 2 == 0) {
+            aux = aux + 200;
+        }
+
+        else {
+            aux = aux + 300;
+        }
+
+        if (this.andar >= 3) {
+            aux = aux + 2000;
+        }
+
+        System.out.println("Valor do apto. é de " + aux);
     }
     
 }

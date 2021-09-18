@@ -11,9 +11,9 @@ public abstract class Moradia {
     }
 
     public Moradia(String endereco, String cidade, float tamanho) {
-        this.endereco = endereco;
-        this.cidade = cidade;
-        this.tamanho = tamanho;
+        this.setEndereco(endereco);
+        this.setCidade(cidade);
+        this.setTamanho(tamanho);
     }
     
     public String getEndereco() {
