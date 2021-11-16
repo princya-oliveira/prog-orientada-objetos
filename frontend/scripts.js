@@ -86,3 +86,77 @@ let editar = (id, cpf, nome, altura, idade, peso) => {
     // estratégia
     document.getElementById("id").value= id
 }
+
+// configurações médicos
+
+// cadastrar médico
+function cadastrarMedico(){
+    // recupera os dados do médico
+    let nome = document.getElementById("nome").value
+    let crm = Number(document.getElementById("crm").value)
+    let especialidade = document.getElementById("especialidade").value
+    let id = document.getElementById("id").value
+    let verbo // POST para inserção ou PUT para atualização
+    
+    // cria o objeto para inserção no BD
+    let medico
+
+    if (id){
+        verbo = "PUT"
+        medico = {
+            "nome": nome,
+            "crm": crm,
+            "especialidade": especialidade,
+            "id": id
+        }
+    }
+    else {
+        verbo = "POST"
+        medico = {
+            "nome": nome,
+            "crm": crm,
+            "especialidade": especialidade
+        }
+    }
+    
+    // conecta no servidor de APIs
+    let req = new XMLHttpRequest()
+    req.open(verbo, `http://localhost:8080/medico`, true) // conexão assíncrona
+    req.setRequestHeader("Content-Type", "application/json")
+    req.send(JSON.stringify(medico))
+    alert(`Médico inserido/atualizado com sucesso`)
+    consultaMedicos()
+}
+
+function consultaMedicos(){
+    let req = new XMLHttpRequest()
+    req.open('GET', 'http://localhost:8080/medico', true)
+    req.onload = function() {
+        let conteudo = ""
+        let medicos = JSON.parse(this.response) // transforma resposta em JSON
+        medicos.map( medico => {
+            conteudo = conteudo + `<tr> <td> ${medico.nome} </td> <td> ${medico.crm} </td> <td> ${medico.especialidade} </td> <td> <i onClick="removeMedico(${medico.id})" class="bi bi-trash"></i> </td> <td> <button onclick="atualizaMedico(${medico.id}, '${medico.nome}', '${medico.crm}', '${medico.especialidade}')"> <i class="bi bi-pencil"></i> </button></td></tr>`
+        })
+        document.getElementById("conteudoTabela").innerHTML = conteudo
+    }
+    req.send()
+}
+
+function removeMedico(id){
+    let resp = confirm(`Deseja realmente excluir médico ${id}? `)
+    if (resp) {
+        let req = new XMLHttpRequest()
+        req.open('DELETE', `http://localhost:8080/medico/${id}`, true)
+        req.setRequestHeader('Content-Type', 'application/json')
+        req.send()
+        alert(`Médico removido com sucesso`)
+        consultaMedicos()
+    }
+}
+
+function atualizaMedico(id, nome, crm, especialidade){
+    document.getElementById("nome").value = nome
+    document.getElementById("crm").value = crm
+    document.getElementById("especialidade").value = especialidade
+    document.getElementById("id").value = id
+}
